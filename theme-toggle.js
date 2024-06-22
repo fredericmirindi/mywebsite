@@ -1,12 +1,18 @@
-const themeToggle = document.getElementById('theme-toggle');
-const themeStyle = document.getElementById('theme-style');
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav ul li a');
 
-themeToggle.addEventListener('click', () => {
-  if (themeStyle.getAttribute('href') === 'light-theme.css') {
-    themeStyle.setAttribute('href', 'dark-theme.css');
-    themeToggle.textContent = 'Switch to Light Mode';
-  } else {
-    themeStyle.setAttribute('href', 'light-theme.css');
-    themeToggle.textContent = 'Switch to Dark Mode';
-  }
+    for (const link of links) {
+        link.addEventListener('click', smoothScroll);
+    }
+
+    function smoothScroll(event) {
+        event.preventDefault();
+        const targetId = event.currentTarget.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 });
