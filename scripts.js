@@ -1,3 +1,3 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // JavaScript code goes here
+    // JavaScript code for interactivity
 });
