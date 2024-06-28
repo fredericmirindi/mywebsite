@@ -1,18 +1,25 @@
 /* style.css */
+
+/* Global styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
+/* Header styles */
 header {
-  background: #1a237e;
+  background-color: #1a237e;
   color: #fff;
   padding: 1rem;
 }
 
 nav ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li {
@@ -25,21 +32,43 @@ nav ul li a {
   text-decoration: none;
 }
 
-section {
+/* Main content styles */
+main {
   padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h1, h2, h3 {
+  color: #1a237e;
+}
+
+.profile-img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 .btn {
   display: inline-block;
-  background: #1a237e;
+  background-color: #1a237e;
   color: #fff;
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 5px;
 }
 
+.btn:hover {
+  background-color: #303f9f;
+}
+
+/* Footer styles */
 footer {
-  background: #f4f4f4;
+  background-color: #f4f4f4;
   padding: 1rem;
   text-align: center;
+  color: #666;
 }
