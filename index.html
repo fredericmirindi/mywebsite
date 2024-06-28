@@ -1,39 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Your Name</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title>Frédéric Mirindi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #0056d2;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #003b93;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e6f2ff;
+        }
+
+        .container {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .centered-content {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .centered-content h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #0056d2;
+        }
+
+        .centered-content p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .centered-content hr {
+            width: 50%;
+            margin: 20px auto;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .centered-content a {
+            color: #0056d2;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .centered-content a:hover {
+            color: #003b93;
+        }
+
+        .highlight {
+            background-color: #e6f2ff;
+            border: 2px solid #0056d2;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .highlight h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #0056d2;
+        }
+
+        .highlight p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .academic-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .academic-info h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+            color: #0056d2;
+        }
+
+        .academic-info p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .academic-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #333;
+        }
+
+        .academic-info ul li {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .contact-form h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+            color: #0056d2;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #0056d2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .contact-form button:hover {
+            background-color: #003b93;
+        }
+
+        footer {
+            background-color: #0056d2;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .centered-content h1 {
+                font-size: 1.8em;
+            }
+
+            .centered-content p {
+                font-size: 1em;
+            }
+
+            .highlight h2,
+            .academic-info h3,
+            .contact-form h3 {
+                font-size: 1.2em;
+            }
+
+            .highlight p,
+            .academic-info p,
+            .academic-info ul li {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <h1>About Me</h1>
+        <h1>Frédéric Mirindi</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="research.html">Research</a>
-            <a href="publications.html">Publications</a>
-            <a href="teaching.html">Teaching</a>
-            <a href="experience.html">Experience</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Academic Background</h2>
-            <p>I have a background in Macroeconomics, Econometrics & Development Economics. My journey began at the Catholic University of Bukavu, where I earned my B.Sc. and M.Sc. in Economics. I later pursued a M.Sc. in Development Evaluation at the University of Antwerp and completed Ph.D. coursework in Economics at Charles University, CERGE-EI.</p>
-            <h2>Research Interests</h2>
-            <p>My research interests include macroeconomic policy, econometric modeling, and economic development in Sub-Saharan Africa. I have received several awards and honors for my contributions to the field.</p>
-            <h2>Achievements</h2>
-            <ul>
-                <li>1st Ranked in B.Sc. and M.Sc. in Economics at Catholic University of Bukavu</li>
-                <li>Awarded [Specific Award]</li>
-            </ul>
-        </section>
-    </main>
+    <div class="container">
+        <div class="centered-content">
+            <h1>Frédéric Mirindi</h1>
+            <p>Data Analyst, PhD Student</p>
+            <p>Economics and Econometrics</p>
+            <p>University of Manitoba</p>
+            <hr>
+            <p id="contact">Email: <a href="mailto:mirindif@myumanitoba.ca">mirindif@myumanitoba.ca</a></p>
+            <p>Website under construction. Please check back soon!</p>
+            <div class="highlight" id="research">
+                <h2>Current Research Projects</h2>
+                <p><strong>Beyond Homo Economicus:</strong> Rethinking Economic Rationality in African Contexts</p>
+                <p><strong>The Resurgence of the M23 Rebel Group:</strong> The Complexities of Conflict Resolution in the Eastern Democratic Republic of the Congo</p>
+            </div>
+            <div class="academic-info" id="about">
+                <h3>About Me</h3>
+                <p>I am a dedicated economist with a strong focus on data analysis, econometrics, and economic research. My academic journey and professional experience have equipped me with the skills to tackle complex economic issues and contribute valuable insights to the field.</p>
+                <h3>Key Areas of Expertise</h3>
+                <ul>
+                    <li>Microeconometrics and econometric modeling</li>
+                    <li>Data analysis and visualization</li>
+                    <li>Labor economics and experimental economics</li>
+                    <li>Conflict resolution and economic development</li>
+                </ul>
+                <h3>Education</h3>
+                <ul>
+                    <li>2024 -- Present: PhD Student, Economics (University of Manitoba, Canada)</li>
+                    <li>2023 -- 2024: Pre-doctoral Student, Economics (University of Manitoba, Canada)</li>
+                    <li>2019 - 2021: PhD Student, Economics & Econometrics (Charles University, Prague)</li>
+                    <li>2018 - 2019: M.Sc. in Development Evaluation (University of Antwerp, Belgium)</li>
+                    <li>2017: Master's Bridge Programme (African Economic Research Consortium, Kenya)</li>
+                    <li>2014-2016: M.Sc. in Economics (Catholic University of Bukavu, DRC)</li>
+                    <li>2011-2014: B.Sc. in Economics (Catholic University of Bukavu, DRC)</li>
+                </ul>
+                <h3>Training</h3>
+                <ul>
+                    <li>2024: Diploma in Social Entrepreneurship (École des Entrepreneurs du Québec, Canada)</li>
+                </ul>
+                <h3>Employment</h3>
+                <ul>
+                    <li>2024 - Present: Data Scientist at the Government of Manitoba (Winnipeg)</li>
+                    <li>2022 - 2024: Data Analyst at Canada Life (Winnipeg)</li>
+                </ul>
+                <h3>Teaching and Research Experience</h3>
+                <ul>
+                    <li>2024 - Present: Professor at Prolang, Services Linguistiques Professionnels (Québec)</li>
+                    <li>2022 - Present: Online Tutor at Park Street Education (Ontario)</li>
+                    <li>2019-2021: Research Assistant at CERGE-EI, Charles University (Prague)</li>
+                    <li>2015: Research Assistant at the University of Bayreuth (Germany)</li>
+                </ul>
+                <h3>Honors, Scholarships, and Fundings</h3>
+                <ul>
+                    <li>2023-2025: CPA Programme, Manitoba Careers for Internationally Educated Professionals</li>
+                    <li>2018-2019: Vlir-Uos Scholarship, Belgium <a href="https://www.vliruos.be/en/icpconnect-scholarships">Link</a></li>
+                    <li>2017: African Economic Research Consortium, MA/PhD Fellowship <a href="https://aercafrica.org/opportunities/phd-fellowship-2023-2024-scholarships/">Link</a></li>
+                    <li>2011-2016: AUCAM Scholarship, Catholic University of Louvain <a href="https://ucbukavu.ac.cd/scholarships/">Link</a></li>
+                    <li>2014 - 2015: Scholarship of Excellence, 50% reduction in academic fees</li>
+                    <li>2023: Projet Jeunesse francophone et innovation sociale (15-30 en Action): $5000 <a href="https://www.entrepreneurs1530.ca/15-30-en-action">Link</a></li>
+                    <li>2023: 48H Top Chrono, RDEE Canada: $1000 <a href="https://rdee.ca/en/nouvelles/inscriptions-48-h-top-chrono/">Link</a></li>
+                    <li>2022: Jeunes entrepreneurs 18 - 35 ans, CDEM Manitoba: $1000 <a href="https://www.cdem.com/jeunesse/jeunes-entrepreneurs-18-35-ans/">Link</a></li>
+                </ul>
+                <h3>Skills</h3>
+                <ul>
+                    <li>Computer Applications: Julia, Stata, R, Excel, Python, Latex. Example: <a href="https://www.dropbox.com/scl/fo/xwyb81s6i3uqwek1f13bo/h?rlkey=d6vtimsiaxike8sq0ex7z9ssv">Data Analysis Project</a></li>
+                    <li>Data Analysis: Microeconometrics, machine learning, experimental economics. Survey data, nightlight data, WDI, DHS data.</li>
+                    <li>Languages:
+                        <ul>
+                            <li>English: Fluent</li>
+                            <li>French & Swahili: Native</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Affiliations</h3>
+                <ul>
+                    <li>2023: CPA Western School of Business (CPAWSB)
+                        <ul>
+                            <li>CPA preparatory course</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Research Outputs and Blogs</h3>
+                <ul>
+                    <li>--- Mirindi, D., Mirindi, F., & Oshineye, O. (2024). Navigating construction project outcomes: Synergy through the evolution of digital innovation and strategic management. <i>International Journal of Latest Research in Engineering and Technology (IJLRET), 10(3), 17-25</i>. <a href="http://ijlret.com/Papers/Vol-10-issue-03/4.C2024359.pdf">PDF</a></li>
+                    <li>--- Kelly Bado: Une artiste qui fait du bien. <a href="https://webouest.ca/auteur/frederic-mirindi/">Link</a></li>
+                    <li>--- La Journée internationale des femmes au Manitoba: Célébration et réflexion. <a href="https://webouest.ca/auteur/frederic-mirindi/">Link</a></li>
+                    <li>--- Célébration de l'héritage et des contributions des Noirs au Canada: Un regard approfondi. <a href="https://webouest.ca/auteur/frederic-mirindi/">Link</a></li>
+                    <li>--- Winnipeg: Un creuset de cultures à la croisée des chemins. <a href="https://webouest.ca/auteur/frederic-mirindi/">Link</a></li>
+                </ul>
+                <h3>References</h3>
+                <p><strong>Professor Julia Witt</strong><br>Dep. of Economics, University of Manitoba<br>Email: <a href="mailto:julia.witt@umanitoba.ca">julia.witt@umanitoba.ca</a></p>
+                <p><strong>Professor Ryan Godwin</strong><br>Dep. of Economics, University of Manitoba<br>Email: <a href="mailto:ryan.godwin@umanitoba.ca">ryan.godwin@umanitoba.ca</a></p>
+            </div>
+            <div class="contact-form" id="contact-form">
+                <h3>Contact Me</h3>
+                <form action="https://formspree.io/f/mdknnrol" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy; 2024 Frédéric Mirindi. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
