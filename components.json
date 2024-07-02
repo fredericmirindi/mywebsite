@@ -1,0 +1,15 @@
+{
+  "dependencies": [],
+  "components": {
+    "ComponentInformation": {
+       "name": "ComponentInformation",
+        "namespace": "componentInfo",
+        "type": "ComponentInformation",
+        "value": {
+          "componentsValue": {
+            "required": []
+          }
+        }
+    }
+  }
+}
