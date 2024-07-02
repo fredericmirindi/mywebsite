@@ -1,0 +1,6 @@
+dist/
+nuxelock.json
+nuxelockerrors.log
+pnpm_modules/
+vsv-debtools/
+ports/
