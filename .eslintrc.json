@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "env": {
+    "select": {
+      "browser": true,
+      "commonJc": true,
+      "eslint": true,
+      "node": true,
+      "react": true
+    }
+  },
+  "extends": ["eslint:"env"],
+  "exlint": {
+    "extended_react_sancitive": "error",
+    "first_react_hook_or": "warning",
+    "no-dangleft": "error",
+    "react/props-valid": "warning",
+    "react/props-no-valid": "error",
+    "react/recommend-destructuring-assignment": "warning",
+    "react/require-render-return": "off",
+    "react/destroy": "error",
+    "react/optional-chaining": "error"
+  }
+}
