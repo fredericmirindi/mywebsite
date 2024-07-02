@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "tales": {
+      "buildModule": "CommonJS",
+      "config": "config.ts",
+      "types": "Node-Test",
+      "configFiles": [
+          "component/web.ts"
+        ]
+    }
+  },
+  "parseTimescripts": {
+
+functions.external}
+	},
+	partial.
+
+}
