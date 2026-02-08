@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REQNTPLBJK"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-REQNTPLBJK');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { border: "var(--glass-border)" } } } }</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root { --bg-color: #050505; --text-main: #ffffff; --text-muted: #a3a3a3; --glass-bg: rgba(255,255,255,0.03); --glass-border: rgba(255,255,255,0.15); --accent-color: #22d3ee; --gradient-start: #ffffff; --gradient-end: #22d3ee; }
+        html.light { --bg-color: #fafafa; --text-main: #171717; --text-muted: #525252; --glass-bg: rgba(0,0,0,0.03); --glass-border: rgba(0,0,0,0.1); --accent-color: #b45309; --gradient-start: #171717; --gradient-end: #b45309; }
+        body { font-family: 'Abadi', sans-serif; background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; margin: 0; transition: all 0.5s ease; }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: var(--bg-color); }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: var(--accent-color); transform: translateY(-2px); }
+        .nav-link { position: relative; color: var(--text-muted); transition: color 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent-color); transition: width 0.3s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--text-main); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .text-gradient-innovative { background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .theme-toggle { background: transparent; border: 1px solid var(--glass-border); color: var(--text-main); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <nav class="fixed top-0 w-full z-50 bg-[var(--bg-color)]/80 backdrop-blur-lg border-b border-[var(--glass-border)]">
+        <div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16">
+            <a href="index.html" class="text-xl font-bold text-gradient-innovative">Frédéric Mirindi</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-sm">Home</a>
+                <a href="research.html" class="nav-link text-sm">Research</a>
+                <a href="teaching.html" class="nav-link text-sm">Teaching</a>
+                <a href="publications.html" class="nav-link active text-sm">Publications</a>
+                <a href="apps.html" class="nav-link text-sm">Apps</a>
+                <a href="blog.html" class="nav-link text-sm">Blog</a>
+                <a href="contact.html" class="nav-link text-sm">Contact</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--accent-color)]"><i class="fab fa-linkedin"></i></a>
+                <button onclick="toggleTheme()" class="theme-toggle"><i id="theme-icon" class="fas fa-moon text-sm"></i></button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-[var(--text-muted)]"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div></div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--glass-border)] bg-[var(--bg-color)]/95 backdrop-blur-lg"><div class="px-6 py-4 space-y-3">
+            <a href="index.html" class="block nav-link text-sm py-1">Home</a><a href="research.html" class="block nav-link text-sm py-1">Research</a><a href="teaching.html" class="block nav-link text-sm py-1">Teaching</a><a href="publications.html" class="block nav-link active text-sm py-1">Publications</a><a href="apps.html" class="block nav-link text-sm py-1">Apps</a><a href="blog.html" class="block nav-link text-sm py-1">Blog</a><a href="contact.html" class="block nav-link text-sm py-1">Contact</a>
+        </div></div>
+    </nav>
+
+    <!-- PUBLICATIONS PAGE CONTENT -->
+    <main class="pt-24 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12">Publications & Proceedings</h2>
+
+            <!-- 2026 -->
+            <h3 class="text-xl font-bold mb-6 text-[var(--accent-color)]">Forthcoming & 2026</h3>
+            <div class="space-y-4 mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">The Future of Banking Performance Evaluation: An Empirical Study of AI-Enhanced KPI Prediction Models</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F., & Mirindi, D. (2026) - In Handbook of Financial Services Performance. DOI: 10.1142/9789819823161_0012</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Optimizing ML algorithms for real-time privacy-preserving patient monitoring in embedded systems</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F., Khang, A., & Mirindi, D. (2026) - In Revolutionizing Digital Healthcare Through AI. DOI: 10.1016/B978-0-443-36434-1.00027-6</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">SEF-Net: A hybrid deep learning architecture for multi-step forecasting in sustainable energy markets</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F., & Mirindi, D. (2026) - In Advances in Computational Intelligence, IWANN 2025. DOI: 10.1007/978-3-032-02728-3_18</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F. (2025) - MARBLE 2025. Proceedings: Springer</p>
+                </div>
+            </div>
+
+            <!-- 2025 -->
+            <h3 class="text-xl font-bold mb-6 text-[var(--accent-color)]">2025</h3>
+            <div class="space-y-4 mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Machine learning-driven analysis of nanoparticle performance on concrete mechanical properties</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, D., Hunter, J., Sinkhonde, D., & Mirindi, F. (2025) - Manufacturing Letters. DOI: 10.1016/j.mfglet.2025.07.001</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Forecasting energy prices using machine learning algorithms: A comparative analysis</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F., & Mirindi, D. (2025) - Machine Learning Technologies on Energy Economics and Finance</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Neural networks for predicting market trends in sustainable industries: A review</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, F., & Mirindi, D. (2025) - Proceedings of RAISD 2025</p>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <h3 class="text-xl font-bold mb-6 text-[var(--accent-color)]">2024</h3>
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">Structural performance of boards through nanoparticle reinforcement: An advance review</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, D., Hunter, J., Mirindi, F., et al. (2024) - Nanotechnology Reviews</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-bold mb-2">An advance review of urban-AI and ethical considerations</h4>
+                    <p class="text-sm text-[var(--text-muted)]">Mirindi, D., Sinkhonde, D., & Mirindi, F. (2024) - ACM Conference Proceedings</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-[var(--glass-border)] py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-[var(--text-muted)]">&copy; 2018 Frédéric Mirindi. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const scene = new THREE.Scene(); scene.fog = new THREE.FogExp2(0x050505, 0.002);
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight); renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        let sphereMaterial, particlesMaterial;
+        const geometry = new THREE.IcosahedronGeometry(10, 2);
+        sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.03 });
+        const sphere = new THREE.Mesh(geometry, sphereMaterial); scene.add(sphere);
+        const particlesGeometry = new THREE.BufferGeometry();
+        const posArray = new Float32Array(700 * 3);
+        for(let i = 0; i < 700 * 3; i++) { posArray[i] = (Math.random() - 0.5) * 60; }
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesMaterial = new THREE.PointsMaterial({ size: 0.05, color: 0xffffff, transparent: true, opacity: 0.8 });
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial); scene.add(particlesMesh);
+        camera.position.z = 25;
+        function animate() { sphere.rotation.y += 0.002; sphere.rotation.x += 0.001; renderer.render(scene, camera); requestAnimationFrame(animate); }
+        animate();
+        window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+        function updateThreeJSTheme(mode) {
+            if (mode === 'light') { scene.fog.color.setHex(0xfafafa); sphereMaterial.color.setHex(0x171717); particlesMaterial.color.setHex(0x171717); }
+            else { scene.fog.color.setHex(0x050505); sphereMaterial.color.setHex(0xffffff); particlesMaterial.color.setHex(0xffffff); }
+        }
+        function toggleTheme() {
+            const html = document.documentElement; const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('light')) { html.classList.remove('light'); html.classList.add('dark'); icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); localStorage.setItem('theme', 'dark'); updateThreeJSTheme('dark'); }
+            else { html.classList.remove('dark'); html.classList.add('light'); icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); localStorage.setItem('theme', 'light'); updateThreeJSTheme('light'); }
+        }
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') { document.documentElement.classList.remove('dark'); document.documentElement.classList.add('light'); document.getElementById('theme-icon').classList.remove('fa-moon'); document.getElementById('theme-icon').classList.add('fa-sun'); updateThreeJSTheme('light'); }
+        };
+    </script>
+</body>
+</html>
