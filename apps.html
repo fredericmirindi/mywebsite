@@ -77,11 +77,68 @@
       <h2 class="text-3xl font-bold mb-4">Interactive Tools</h2>
       <p class="text-[var(--text-muted)] mb-12 max-w-2xl">Web-based applications for econometric analysis and financial simulation.</p>
       
-      <div class="glass-card rounded-2xl p-12 text-center">
-        <i class="fas fa-tools text-6xl text-[var(--accent-color)] mb-6"></i>
-        <h3 class="text-2xl font-bold mb-4">Interactive Applications Coming Soon</h3>
-        <p class="text-[var(--text-muted)] mb-6">Advanced econometric tools including OLS Regression, Inflation Impact Simulator, Compound Growth Visualizer, and Monte Carlo Portfolio Simulator are being migrated to this dedicated page.</p>
-        <p class="text-sm text-[var(--text-muted)]">Check back soon or view the original tools in the previous version of the site.</p>
+            <!-- App Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <!-- OLS Regression Tool -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-chart-line text-4xl text-[var(--accent-color)] mr-4"></i>
+            <h3 class="text-xl font-bold">OLS Regression Analyzer</h3>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Interactive tool for performing Ordinary Least Squares regression analysis with real-time visualization of results, residuals, and statistical tests.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Econometrics</span>
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Statistics</span>
+          </div>
+          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
+        </div>
+
+        <!-- Inflation Impact Simulator -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-coins text-4xl text-[var(--accent-color)] mr-4"></i>
+            <h3 class="text-xl font-bold">Inflation Impact Simulator</h3>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Simulate and visualize the effects of inflation on purchasing power, investments, and economic indicators over customizable time periods.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Macroeconomics</span>
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Finance</span>
+          </div>
+          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
+        </div>
+
+        <!-- Compound Growth Visualizer -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-chart-area text-4xl text-[var(--accent-color)] mr-4"></i>
+            <h3 class="text-xl font-bold">Compound Growth Visualizer</h3>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Interactive visualization tool for compound growth calculations, investment projections, and time-value of money scenarios with dynamic charting.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Finance</span>
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Investment</span>
+          </div>
+          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
+        </div>
+
+        <!-- Monte Carlo Portfolio Simulator -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-dice text-4xl text-[var(--accent-color)] mr-4"></i>
+            <h3 class="text-xl font-bold">Monte Carlo Portfolio Simulator</h3>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Advanced stochastic simulation tool for portfolio risk assessment, scenario analysis, and probabilistic forecasting of investment outcomes.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Risk Analysis</span>
+            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Portfolio</span>
+          </div>
+          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
+        </div>
+      </div>
+
+      <!-- Note about availability -->
+      <div class="glass-card rounded-xl p-6 text-center">
+        <p class="text-[var(--text-muted)]"><i class="fas fa-info-circle mr-2"></i>These interactive applications are currently being migrated from the original single-page version. Check back soon or explore the previous version of the site for early access.</p>
       </div>
     </div>
   </main>
