@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REQNTPLBJK"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REQNTPLB3K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-REQNTPLBJK');
+    gtag('config', 'G-REQNTPLB3K');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,7 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root { --bg-color: #050505; --text-main: #ffffff; --text-muted: #a3a3a3; --glass-bg: rgba(255,255,255,0.03); --glass-border: rgba(255,255,255,0.15); --accent-color: #22d3ee; --gradient-start: #ffffff; --gradient-end: #22d3ee; }
     html.light { --bg-color: #fafafa; --text-main: #171717; --text-muted: #525252; --glass-bg: rgba(0,0,0,0.03); --glass-border: rgba(0,0,0,0.1); --accent-color: #b45309; --gradient-start: #171717; --gradient-end: #b45309; }
@@ -32,6 +33,20 @@
     .text-gradient-innovative { background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .theme-toggle { background: transparent; border: 1px solid var(--glass-border); color: var(--text-main); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-center; cursor: pointer; transition: all 0.3s ease; }
     .theme-toggle:hover { background: var(--glass-bg); color: var(--accent-color); border-color: var(--accent-color); }
+    .tool-card { background: var(--glass-bg); border: 2px solid; border-radius: 16px; padding: 24px; margin-bottom: 32px; }
+    .tool-card.green { border-color: #10b981; }
+    .tool-card.red { border-color: #ef4444; }
+    .tool-card.blue { border-color: #3b82f6; }
+    .tool-card.purple { border-color: #8b5cf6; }
+    .tool-card.cyan { border-color: #06b6d4; }
+    input[type="text"], input[type="number"], select { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-main); padding: 8px 12px; border-radius: 8px; width: 100%; margin-bottom: 12px; }
+    input[type="range"] { width: 100%; }
+    button.calculate-btn { background: var(--accent-color); color: var(--bg-color); padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; transition: all 0.3s ease; }
+    button.calculate-btn:hover { transform: scale(1.05); opacity: 0.9; }
+    .result-box { background: rgba(var(--accent-color-rgb), 0.1); border: 1px solid var(--accent-color); border-radius: 12px; padding: 20px; margin-top: 16px; text-align: center; }
+    .crypto-badge, .stock-badge { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; font-weight: bold; margin-right: 12px; }
+    .positive { color: #10b981; }
+    .negative { color: #ef4444; }
   </style>
 </head>
 <body>
@@ -71,75 +86,195 @@
     </div>
   </nav>
 
-  <!-- APPS PAGE CONTENT -->
+  <!-- INTERACTIVE TOOLS CONTENT -->
   <main class="pt-24 pb-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-4">Interactive Tools</h2>
-      <p class="text-[var(--text-muted)] mb-12 max-w-2xl">Web-based applications for econometric analysis and financial simulation.</p>
-      
-            <!-- App Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <!-- OLS Regression Tool -->
-        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-chart-line text-4xl text-[var(--accent-color)] mr-4"></i>
-            <h3 class="text-xl font-bold">OLS Regression Analyzer</h3>
-          </div>
-          <p class="text-[var(--text-muted)] mb-4">Interactive tool for performing Ordinary Least Squares regression analysis with real-time visualization of results, residuals, and statistical tests.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Econometrics</span>
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Statistics</span>
-          </div>
-          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
-        </div>
+      <h2 class="text-4xl font-bold mb-4 text-center">Interactive Tools</h2>
+      <p class="text-[var(--text-muted)] mb-12 max-w-2xl mx-auto text-center">Web-based applications for econometric analysis and financial simulation.</p>
 
-        <!-- Inflation Impact Simulator -->
-        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-coins text-4xl text-[var(--accent-color)] mr-4"></i>
-            <h3 class="text-xl font-bold">Inflation Impact Simulator</h3>
-          </div>
-          <p class="text-[var(--text-muted)] mb-4">Simulate and visualize the effects of inflation on purchasing power, investments, and economic indicators over customizable time periods.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Macroeconomics</span>
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Finance</span>
-          </div>
-          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
+      <!-- 1. Simple OLS Regressor -->
+      <div class="tool-card green">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-calculator text-3xl text-green-500 mr-4"></i>
+          <h3 class="text-2xl font-bold">Simple OLS Regressor</h3>
         </div>
-
-        <!-- Compound Growth Visualizer -->
-        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-chart-area text-4xl text-[var(--accent-color)] mr-4"></i>
-            <h3 class="text-xl font-bold">Compound Growth Visualizer</h3>
+        <p class="text-[var(--text-muted)] mb-4">Enter comma-separated values to calculate the slope (β) and intercept (α) for a simple linear regression model: y = α + βx</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-2">Variable X (Independent)</label>
+            <input type="text" id="ols-x" value="1, 2, 3, 4, 5" placeholder="e.g., 1, 2, 3, 4, 5">
           </div>
-          <p class="text-[var(--text-muted)] mb-4">Interactive visualization tool for compound growth calculations, investment projections, and time-value of money scenarios with dynamic charting.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Finance</span>
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Investment</span>
+          <div>
+            <label class="block text-sm mb-2">Variable Y (Dependent)</label>
+            <input type="text" id="ols-y" value="2, 3.5, 4.5, 7, 9" placeholder="e.g., 2, 3.5, 4.5, 7, 9">
           </div>
-          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
         </div>
-
-        <!-- Monte Carlo Portfolio Simulator -->
-        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-dice text-4xl text-[var(--accent-color)] mr-4"></i>
-            <h3 class="text-xl font-bold">Monte Carlo Portfolio Simulator</h3>
+        <button onclick="calculateOLS()" class="calculate-btn w-full">Calculate Model</button>
+        <div id="ols-result" class="result-box" style="display:none;">
+          <h4 class="text-xl font-bold mb-3">Results</h4>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
+            <div><strong>Equation:</strong><br><span id="ols-equation">-</span></div>
+            <div><strong>R-Squared (R²):</strong><br><span id="ols-r2">-</span></div>
+            <div><strong>Std. Error (ε):</strong><br><span id="ols-stderr">-</span></div>
+            <div><strong>t-stat (Slope):</strong><br><span id="ols-tstat">-</span></div>
+            <div><strong>Observations (n):</strong><br><span id="ols-n">-</span></div>
           </div>
-          <p class="text-[var(--text-muted)] mb-4">Advanced stochastic simulation tool for portfolio risk assessment, scenario analysis, and probabilistic forecasting of investment outcomes.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Risk Analysis</span>
-            <span class="px-3 py-1 text-xs rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)]">Portfolio</span>
-          </div>
-          <p class="text-sm text-[var(--accent-color)]">Coming Soon</p>
         </div>
       </div>
 
-      <!-- Note about availability -->
-      <div class="glass-card rounded-xl p-6 text-center">
-        <p class="text-[var(--text-muted)]"><i class="fas fa-info-circle mr-2"></i>These interactive applications are currently being migrated from the original single-page version. Check back soon or explore the previous version of the site for early access.</p>
+      <!-- 2. Inflation Impact Simulator -->
+      <div class="tool-card red">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-chart-line text-3xl text-red-500 mr-4"></i>
+          <h3 class="text-2xl font-bold">Inflation Impact Simulator</h3>
+        </div>
+        <p class="text-[var(--text-muted)] mb-4">Visualize how inflation erodes the real value of your cash holdings over time based on a constant inflation assumption.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-2">Current Amount ($)</label>
+            <input type="number" id="inflation-amount" value="1000" min="0">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Inflation Rate (%)</label>
+            <input type="number" id="inflation-rate" value="3.5" min="0" max="100" step="0.1">
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="block text-sm mb-2">Time Horizon (Years)</label>
+          <input type="range" id="inflation-years" value="10" min="1" max="30" oninput="document.getElementById('inflation-years-display').textContent = this.value">
+          <div class="text-center mt-2"><span id="inflation-years-display">10</span> Years</div>
+        </div>
+        <button onclick="calculateInflation()" class="calculate-btn w-full mt-4">Calculate</button>
+        <div id="inflation-result" class="result-box" style="display:none;">
+          <h4 class="text-2xl font-bold mb-2">Future Real Value</h4>
+          <div class="text-4xl font-bold text-[var(--accent-color)] mb-2" id="inflation-future">$0.00</div>
+          <div class="text-sm text-[var(--text-muted)]">Loss of Purchasing Power: <span id="inflation-loss">0%</span></div>
+        </div>
       </div>
+
+      <!-- 3. Compound Growth Visualizer -->
+      <div class="tool-card blue">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-chart-bar text-3xl text-blue-500 mr-4"></i>
+          <h3 class="text-2xl font-bold">Compound Growth Visualizer</h3>
+        </div>
+        <div class="mb-4 text-right">
+          <div class="text-sm text-[var(--text-muted)]">Total Principal</div>
+          <div class="text-3xl font-bold text-[var(--accent-color)]" id="compound-total">$10,400</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-2">Initial Principal ($)</label>
+            <input type="number" id="compound-initial" value="800" min="0">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Contribution ($)</label>
+            <input type="number" id="compound-contribution" value="200" min="0">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Frequency</label>
+            <select id="compound-frequency">
+              <option value="monthly" selected>Monthly</option>
+              <option value="annually">Annually</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Annual Return (%)</label>
+            <input type="number" id="compound-return" value="7" min="0" max="100" step="0.1">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Time Horizon (Years)</label>
+            <input type="number" id="compound-years" value="1" min="1" max="50">
+          </div>
+        </div>
+        <button onclick="calculateCompound()" class="calculate-btn w-full mt-4">Visualize Growth</button>
+        <div id="compound-result" class="mt-6" style="display:none;">
+          <canvas id="compound-chart" width="400" height="200"></canvas>
+        </div>
+      </div>
+
+      <!-- 4. Monte Carlo Portfolio Simulator -->
+      <div class="tool-card purple">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-dice text-3xl text-purple-500 mr-4"></i>
+          <h3 class="text-2xl font-bold">Monte Carlo Portfolio Simulator</h3>
+        </div>
+        <p class="text-[var(--text-muted)] mb-4">Simulate 50 potential market scenarios based on expected return and volatility. See the range of possible outcomes.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-2">Initial Investment ($)</label>
+            <input type="number" id="monte-initial" value="10000" min="0">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Expected Annual Return (%)</label>
+            <input type="number" id="monte-return" value="8" min="-50" max="100" step="0.1">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Volatility (Std Dev %)</label>
+            <input type="number" id="monte-volatility" value="15" min="0" max="100" step="0.1">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Years</label>
+            <input type="number" id="monte-years" value="10" min="1" max="30">
+          </div>
+        </div>
+        <button onclick="runMonteCarlo()" class="calculate-btn w-full mt-4">Run Simulation</button>
+        <div id="monte-result" class="mt-6" style="display:none;">
+          <div class="grid grid-cols-3 gap-4 mb-4">
+            <div class="result-box bg-red-900/20 border-red-500">
+              <div class="text-sm text-[var(--text-muted)]">Worst Case (5th %ile)</div>
+              <div class="text-2xl font-bold" id="monte-worst">$0</div>
+            </div>
+            <div class="result-box bg-blue-900/20 border-blue-500">
+              <div class="text-sm text-[var(--text-muted)]">Median Case</div>
+              <div class="text-2xl font-bold" id="monte-median">$0</div>
+            </div>
+            <div class="result-box bg-green-900/20 border-green-500">
+              <div class="text-sm text-[var(--text-muted)]">Best Case (95th %ile)</div>
+              <div class="text-2xl font-bold" id="monte-best">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Market Pulse: Crypto & AI -->
+      <div class="tool-card cyan">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <i class="fas fa-satellite-dish text-3xl text-cyan-500 mr-4"></i>
+            <h3 class="text-2xl font-bold">Market Pulse: Crypto & AI</h3>
+          </div>
+          <span class="px-3 py-1 bg-green-500/20 text-green-500 rounded-full text-sm flex items-center">
+            <i class="fas fa-circle text-xs mr-2 animate-pulse"></i>Live Stream
+          </span>
+        </div>
+        <p class="text-[var(--text-muted)] mb-6">Real-time tracking of top digital assets and AI equities</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Crypto Assets -->
+          <div>
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+              <i class="fab fa-bitcoin text-orange-500 mr-2"></i>Crypto Assets
+              <span class="ml-auto text-xs text-[var(--text-muted)]">24H TREND</span>
+            </h4>
+            <div class="space-y-3" id="crypto-list">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+          
+          <!-- AI & Tech Equities -->
+          <div>
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+              <i class="fas fa-microchip text-purple-500 mr-2"></i>AI & Tech Equities
+              <span class="ml-auto text-xs text-[var(--text-muted)]">LIVE SIMULATION</span>
+            </h4>
+            <div class="space-y-3" id="stocks-list">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -148,6 +283,7 @@
   </footer>
 
   <script>
+    // Three.js Background Animation
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x050505, 0.002);
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -155,11 +291,13 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     document.getElementById('canvas-container').appendChild(renderer.domElement);
+    
     let sphereMaterial, particlesMaterial;
     const geometry = new THREE.IcosahedronGeometry(10, 2);
     sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.03 });
     const sphere = new THREE.Mesh(geometry, sphereMaterial);
     scene.add(sphere);
+    
     const particlesGeometry = new THREE.BufferGeometry();
     const posArray = new Float32Array(700 * 3);
     for(let i = 0; i < 700 * 3; i++) { posArray[i] = (Math.random() - 0.5) * 60; }
@@ -167,26 +305,306 @@
     particlesMaterial = new THREE.PointsMaterial({ size: 0.05, color: 0xffffff, transparent: true, opacity: 0.8 });
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particlesMesh);
+    
     camera.position.z = 25;
     let mouseX = 0, mouseY = 0;
     document.addEventListener('mousemove', (e) => { mouseX = e.clientX - window.innerWidth/2; mouseY = e.clientY - window.innerHeight/2; });
-    function animate() { sphere.rotation.y += 0.002; sphere.rotation.x += 0.001; particlesMesh.rotation.y = -mouseX * 0.00005; renderer.render(scene, camera); requestAnimationFrame(animate); }
+    
+    function animate() {
+      sphere.rotation.y += 0.002;
+      sphere.rotation.x += 0.001;
+      particlesMesh.rotation.y = -mouseX * 0.00005;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
     animate();
-    window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+    
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    
     function updateThreeJSTheme(mode) {
-      if (mode === 'light') { scene.fog.color.setHex(0xfafafa); sphereMaterial.color.setHex(0x171717); particlesMaterial.color.setHex(0x171717); }
-      else { scene.fog.color.setHex(0x050505); sphereMaterial.color.setHex(0xffffff); particlesMaterial.color.setHex(0xffffff); }
+      if (mode === 'light') {
+        scene.fog.color.setHex(0xfafafa);
+        sphereMaterial.color.setHex(0x171717);
+        particlesMaterial.color.setHex(0x171717);
+      } else {
+        scene.fog.color.setHex(0x050505);
+        sphereMaterial.color.setHex(0xffffff);
+        particlesMaterial.color.setHex(0xffffff);
+      }
     }
+    
+    // Theme Toggle
     function toggleTheme() {
-      const html = document.documentElement; const icon = document.getElementById('theme-icon');
-      if (html.classList.contains('light')) { html.classList.remove('light'); html.classList.add('dark'); icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); localStorage.setItem('theme', 'dark'); updateThreeJSTheme('dark'); }
-      else { html.classList.remove('dark'); html.classList.add('light'); icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); localStorage.setItem('theme', 'light'); updateThreeJSTheme('light'); }
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+        updateThreeJSTheme('dark');
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'light');
+        updateThreeJSTheme('light');
+      }
     }
-    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+    
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+    
     window.onload = () => {
       const savedTheme = localStorage.getItem('theme') || 'dark';
-      if (savedTheme === 'light') { document.documentElement.classList.remove('dark'); document.documentElement.classList.add('light'); document.getElementById('theme-icon').classList.remove('fa-moon'); document.getElementById('theme-icon').classList.add('fa-sun'); updateThreeJSTheme('light'); }
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.getElementById('theme-icon').classList.remove('fa-moon');
+        document.getElementById('theme-icon').classList.add('fa-sun');
+        updateThreeJSTheme('light');
+      }
+      // Initialize Market Pulse
+      initMarketPulse();
     };
+
+    // 1. OLS Regressor Function
+    function calculateOLS() {
+      const xInput = document.getElementById('ols-x').value;
+      const yInput = document.getElementById('ols-y').value;
+      const xValues = xInput.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+      const yValues = yInput.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+      
+      if (xValues.length !== yValues.length || xValues.length < 2) {
+        alert('Please enter equal number of values for X and Y (at least 2 pairs)');
+        return;
+      }
+      
+      const n = xValues.length;
+      const sumX = xValues.reduce((a, b) => a + b, 0);
+      const sumY = yValues.reduce((a, b) => a + b, 0);
+      const sumXY = xValues.reduce((sum, x, i) => sum + x * yValues[i], 0);
+      const sumX2 = xValues.reduce((sum, x) => sum + x * x, 0);
+      const sumY2 = yValues.reduce((sum, y) => sum + y * y, 0);
+      
+      const meanX = sumX / n;
+      const meanY = sumY / n;
+      
+      const beta = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+      const alpha = meanY - beta * meanX;
+      
+      const yPred = xValues.map(x => alpha + beta * x);
+      const ssRes = yValues.reduce((sum, y, i) => sum + Math.pow(y - yPred[i], 2), 0);
+      const ssTot = yValues.reduce((sum, y) => sum + Math.pow(y - meanY, 2), 0);
+      const r2 = 1 - (ssRes / ssTot);
+      
+      const stderr = Math.sqrt(ssRes / (n - 2));
+      const seBeta = stderr / Math.sqrt(sumX2 - (sumX * sumX) / n);
+      const tstat = beta / seBeta;
+      
+      document.getElementById('ols-equation').textContent = `y = ${alpha.toFixed(2)} + ${beta.toFixed(2)}x`;
+      document.getElementById('ols-r2').textContent = r2.toFixed(4);
+      document.getElementById('ols-stderr').textContent = stderr.toFixed(4);
+      document.getElementById('ols-tstat').textContent = tstat.toFixed(4);
+      document.getElementById('ols-n').textContent = n;
+      document.getElementById('ols-result').style.display = 'block';
+    }
+    
+    // 2. Inflation Calculator Function
+    function calculateInflation() {
+      const amount = parseFloat(document.getElementById('inflation-amount').value);
+      const rate = parseFloat(document.getElementById('inflation-rate').value) / 100;
+      const years = parseInt(document.getElementById('inflation-years').value);
+      
+      const futureValue = amount / Math.pow(1 + rate, years);
+      const loss = ((amount - futureValue) / amount * 100);
+      
+      document.getElementById('inflation-future').textContent = `$${futureValue.toFixed(2)}`;
+      document.getElementById('inflation-loss').textContent = `${loss.toFixed(1)}%`;
+      document.getElementById('inflation-result').style.display = 'block';
+    }
+    
+    // 3. Compound Growth Visualizer Function
+    let compoundChart = null;
+    function calculateCompound() {
+      const initial = parseFloat(document.getElementById('compound-initial').value);
+      const contribution = parseFloat(document.getElementById('compound-contribution').value);
+      const frequency = document.getElementById('compound-frequency').value;
+      const returnRate = parseFloat(document.getElementById('compound-return').value) / 100;
+      const years = parseInt(document.getElementById('compound-years').value);
+      
+      const periodsPerYear = frequency === 'monthly' ? 12 : 1;
+      const totalPeriods = years * periodsPerYear;
+      const ratePerPeriod = returnRate / periodsPerYear;
+      
+      let labels = [];
+      let principals = [];
+      let interests = [];
+      let principal = initial;
+      let totalPrincipal = initial;
+      
+      labels.push('Year 0');
+      principals.push(initial);
+      interests.push(0);
+      
+      for (let year = 1; year <= years; year++) {
+        for (let period = 1; period <= periodsPerYear; period++) {
+          principal = principal * (1 + ratePerPeriod) + contribution;
+          totalPrincipal += contribution;
+        }
+        const interest = principal - totalPrincipal;
+        labels.push(`Year ${year}`);
+        principals.push(totalPrincipal);
+        interests.push(interest);
+      }
+      
+      document.getElementById('compound-total').textContent = `$${principal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+      document.getElementById('compound-result').style.display = 'block';
+      
+      if (compoundChart) compoundChart.destroy();
+      
+      const ctx = document.getElementById('compound-chart').getContext('2d');
+      compoundChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Principal',
+              data: principals,
+              backgroundColor: 'rgba(100, 100, 100, 0.6)'
+            },
+            {
+              label: 'Interest',
+              data: interests,
+              backgroundColor: 'rgba(34, 211, 238, 0.8)'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true }
+          },
+          plugins: {
+            legend: { display: true, position: 'bottom' }
+          }
+        }
+      });
+    }
+    
+    // 4. Monte Carlo Simulator Function
+    function runMonteCarlo() {
+      const initial = parseFloat(document.getElementById('monte-initial').value);
+      const returnRate = parseFloat(document.getElementById('monte-return').value) / 100;
+      const volatility = parseFloat(document.getElementById('monte-volatility').value) / 100;
+      const years = parseInt(document.getElementById('monte-years').value);
+      
+      const simulations = 50;
+      const results = [];
+      
+      for (let s = 0; s < simulations; s++) {
+        let value = initial;
+        for (let y = 0; y < years; y++) {
+          const randomReturn = (Math.random() * 2 - 1) * volatility;
+          const annualReturn = returnRate + randomReturn;
+          value *= (1 + annualReturn);
+        }
+        results.push(value);
+      }
+      
+      results.sort((a, b) => a - b);
+      const worst = results[Math.floor(simulations * 0.05)];
+      const median = results[Math.floor(simulations * 0.5)];
+      const best = results[Math.floor(simulations * 0.95)];
+      
+      document.getElementById('monte-worst').textContent = `$${worst.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+      document.getElementById('monte-median').textContent = `$${median.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+      document.getElementById('monte-best').textContent = `$${best.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+      document.getElementById('monte-result').style.display = 'block';
+    }
+    
+    // 5. Market Pulse Function
+    const cryptoData = [
+      { symbol: 'BTC', name: 'Bitcoin', price: 69123, badge: 'B' },
+      { symbol: 'ETH', name: 'Ethereum', price: 2081.8, badge: 'E' },
+      { symbol: 'SOL', name: 'Solana', price: 87.08, badge: 'S' },
+      { symbol: 'BNB', name: 'BNB', price: 644.63, badge: 'B' },
+      { symbol: 'XRP', name: 'Ripple', price: 1.42, badge: 'X' }
+    ];
+    
+    const stockData = [
+      { symbol: 'NVDA', name: 'NVIDIA', price: 1106.48, badge: 'N' },
+      { symbol: 'MSFT', name: 'Microsoft', price: 424.05, badge: 'M' },
+      { symbol: 'GOOGL', name: 'Alphabet', price: 174.97, badge: 'G' },
+      { symbol: 'AMD', name: 'AMD', price: 165.87, badge: 'A' },
+      { symbol: 'PLTR', name: 'Palantir', price: 24.48, badge: 'P' }
+    ];
+    
+    function initMarketPulse() {
+      updateMarketPulse();
+      setInterval(updateMarketPulse, 3000);
+    }
+    
+    function updateMarketPulse() {
+      const cryptoList = document.getElementById('crypto-list');
+      const stocksList = document.getElementById('stocks-list');
+      
+      cryptoList.innerHTML = '';
+      stocksList.innerHTML = '';
+      
+      cryptoData.forEach(crypto => {
+        const change = (Math.random() * 6 - 1).toFixed(2);
+        const isPositive = change >= 0;
+        const newPrice = crypto.price * (1 + change / 100);
+        
+        cryptoList.innerHTML += `
+          <div class="glass-card p-3 rounded-lg flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="crypto-badge bg-orange-500/20 text-orange-500 mr-3">${crypto.badge}</div>
+              <div>
+                <div class="font-bold">${crypto.name}</div>
+                <div class="text-xs text-[var(--text-muted)]">${crypto.symbol}</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-bold">$${newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+              <div class="text-sm ${isPositive ? 'positive' : 'negative'}">${isPositive ? '▲' : '▼'} ${Math.abs(change)}%</div>
+            </div>
+          </div>
+        `;
+      });
+      
+      stockData.forEach(stock => {
+        const change = (Math.random() * 5 - 0.5).toFixed(2);
+        const isPositive = change >= 0;
+        const newPrice = stock.price * (1 + change / 100);
+        
+        stocksList.innerHTML += `
+          <div class="glass-card p-3 rounded-lg flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="stock-badge bg-purple-500/20 text-purple-500 mr-3">${stock.badge}</div>
+              <div>
+                <div class="font-bold">${stock.name}</div>
+                <div class="text-xs text-[var(--text-muted)]">${stock.symbol}</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-bold">$${newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+              <div class="text-sm ${isPositive ? 'positive' : 'negative'}">${isPositive ? '▲' : '▼'} ${Math.abs(change)}%</div>
+            </div>
+          </div>
+        `;
+      });
+    }
   </script>
 </body>
 </html>
